@@ -73,7 +73,7 @@ export const projectsData = [
   {
     title: "Fitness website",
     description:
-      "Hobby projekt, fitness hemsida. Med olika träningspass, bli medlem och en kontakt formulär med react-hook-form. Framer-motion för användning av animationer.",
+      "Hobby projekt, fitness hemsida. Med olika träningspass, bli medlem och en kontakt formulär med react-hook-form. Framer-motion för användning av animationer. Hosted med Github-pages.",
     tags: ["React", "Vite", "Typescript", "Tailwind CSS", "Framer-motion"],
     imageUrl: fitnessImg,
     projectUrl: "https://stefandll.github.io/ts-react-fitness/",

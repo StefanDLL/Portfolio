@@ -18,7 +18,7 @@ const ThemeContext = createContext<ThemeContextType | null>(null);
 export default function ThemeContextProvider({
   children,
 }: ThemeContextProviderProps) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   const toggleTheme = () => {
     if (theme === "light") {
@@ -40,12 +40,32 @@ export default function ThemeContextProvider({
 
       if (localTheme === "dark") {
         document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
       }
     } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark"); // to see if our window is in dark or light mode
+      setTheme("dark");
       document.documentElement.classList.add("dark");
+    } else {
+      setTheme("light");
+      document.documentElement.classList.remove("dark");
     }
   }, []);
+
+  // useEffect(() => {
+  //   const localTheme = window.localStorage.getItem("theme") as Theme | null;
+
+  //   if (localTheme) {
+  //     setTheme(localTheme);
+
+  //     if (localTheme === "dark") {
+  //       document.documentElement.classList.add("dark");
+  //     }
+  //   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  //     setTheme("dark"); // to see if our window is in dark or light mode
+  //     document.documentElement.classList.add("dark");
+  //   }
+  // }, []);
 
   return (
     <ThemeContext.Provider
